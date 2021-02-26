@@ -6655,5 +6655,38 @@
       <field type="uint8_t" name="msg_pack_size">Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.</field>
       <field type="uint8_t[250]" name="messages">Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.</field>
     </message>
+
+    <!-- Custom Mavlink messages  -->
+    <message id="180" name="ACTUATOR_STATUS">
+      <description>A description of the current status for the lander's linear actuator values</description>
+      <field type="float" name="actuator_1">Value for linear actuator 1</field>
+      <field type="float" name="actuator_2">Value for linear actuator 2</field>
+    </message>
+
+    <message id="181" name="NEW_XY_STATUS">
+      <description>A description of the current status for the lander's new xy values</description>
+      <field type="float" name="new_x">Value for new x</field>
+      <field type="float" name="new_y">Value for new y</field>
+    </message>
+
+    <message id="182" name="ROLL_PITCH_STATUS">
+      <description>A description of the current status for the lander's roll and pitch values</description>
+      <field type="float" name="roll_target">Value for roll target</field>
+      <field type="float" name="pitch_target">Value for pitch target</field>
+    </message>
+
+    <message id="183" name="THRUSTER_STATUS">
+      <description>A description of the current status for the lander's thruster values</description>
+      <field type="float" name="thruster_1">Values for cold gas thruster 1</field>
+      <field type="float" name="thruster_2">Values for cold gas thruster 2</field>
+      <field type="float" name="thruster_3">Values for cold gas thruster 3</field>
+      <field type="float" name="thruster_4">Values for cold gas thruster 4</field>
+    </message>
+
+    <message id="184" name="THRUSTER_YAW_STATUS">
+      <description>A description of the current status for the lander's yaw thruster values</description>
+      <field type="float" name="thruster_yaw_1">Values for cold gas yaw thruster 1</field>
+      <field type="float" name="thruster_yaw_2">Values for cold gas yaw thruster 2</field>
+    </message>
   </messages>
 </mavlink>
