@@ -6688,5 +6688,11 @@
       <field type="float" name="thruster_yaw_1">Values for cold gas yaw thruster 1</field>
       <field type="float" name="thruster_yaw_2">Values for cold gas yaw thruster 2</field>
     </message>
+
+    <message id="185" name="ROLL_PITCH_SETPOINT">
+      <description>Roll and Pitch setpoints</description>
+      <field type="float" name="roll_setpoint">Roll Setpoint</field>
+      <field type="float" name="pitch_setpoint">Pitch Setpoint</field>
+    </message>
   </messages>
 </mavlink>
