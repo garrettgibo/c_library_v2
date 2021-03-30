@@ -12893,12 +12893,18 @@ static void mavlink_test_actuator_status(uint8_t system_id, uint8_t component_id
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_actuator_status_t packet_in = {
-        17.0,45.0
+        17.0,45.0,73.0,101.0,129.0,157.0,185.0,213.0
     };
     mavlink_actuator_status_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.actuator_1 = packet_in.actuator_1;
+        packet1.actuator_1_target = packet_in.actuator_1_target;
+        packet1.actuator_1_current = packet_in.actuator_1_current;
+        packet1.actuator_1_velocity = packet_in.actuator_1_velocity;
         packet1.actuator_2 = packet_in.actuator_2;
+        packet1.actuator_2_target = packet_in.actuator_2_target;
+        packet1.actuator_2_current = packet_in.actuator_2_current;
+        packet1.actuator_2_velocity = packet_in.actuator_2_velocity;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -12913,12 +12919,12 @@ static void mavlink_test_actuator_status(uint8_t system_id, uint8_t component_id
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_actuator_status_pack(system_id, component_id, &msg , packet1.actuator_1 , packet1.actuator_2 );
+    mavlink_msg_actuator_status_pack(system_id, component_id, &msg , packet1.actuator_1 , packet1.actuator_1_target , packet1.actuator_1_current , packet1.actuator_1_velocity , packet1.actuator_2 , packet1.actuator_2_target , packet1.actuator_2_current , packet1.actuator_2_velocity );
     mavlink_msg_actuator_status_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_actuator_status_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.actuator_1 , packet1.actuator_2 );
+    mavlink_msg_actuator_status_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.actuator_1 , packet1.actuator_1_target , packet1.actuator_1_current , packet1.actuator_1_velocity , packet1.actuator_2 , packet1.actuator_2_target , packet1.actuator_2_current , packet1.actuator_2_velocity );
     mavlink_msg_actuator_status_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -12931,7 +12937,7 @@ static void mavlink_test_actuator_status(uint8_t system_id, uint8_t component_id
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_actuator_status_send(MAVLINK_COMM_1 , packet1.actuator_1 , packet1.actuator_2 );
+    mavlink_msg_actuator_status_send(MAVLINK_COMM_1 , packet1.actuator_1 , packet1.actuator_1_target , packet1.actuator_1_current , packet1.actuator_1_velocity , packet1.actuator_2 , packet1.actuator_2_target , packet1.actuator_2_current , packet1.actuator_2_velocity );
     mavlink_msg_actuator_status_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 }

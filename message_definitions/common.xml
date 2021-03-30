@@ -6660,7 +6660,14 @@
     <message id="180" name="ACTUATOR_STATUS">
       <description>A description of the current status for the lander's linear actuator values</description>
       <field type="float" name="actuator_1">Value for linear actuator 1</field>
+      <field type="float" name="actuator_1_target">Value for linear actuator 1 target</field>
+      <field type="float" name="actuator_1_current">Value for linear actuator 1 current</field>
+      <field type="float" name="actuator_1_velocity">Value for linear actuator 1 velocity</field>
+
       <field type="float" name="actuator_2">Value for linear actuator 2</field>
+      <field type="float" name="actuator_2_target">Value for linear actuator 2 target</field>
+      <field type="float" name="actuator_2_current">Value for linear actuator 2 current</field>
+      <field type="float" name="actuator_2_velocity">Value for linear actuator 2 velocity</field>
     </message>
 
     <message id="181" name="NEW_XY_STATUS">
