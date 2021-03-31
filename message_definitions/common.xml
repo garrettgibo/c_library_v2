@@ -6701,5 +6701,12 @@
       <field type="float" name="roll_setpoint">Roll Setpoint</field>
       <field type="float" name="pitch_setpoint">Pitch Setpoint</field>
     </message>
+
+    <message id="186" name="VEHICLE_ANGULAR_RATES">
+      <description>Absolute vehicle angular rates</description>
+      <field type="float" name="roll">Roll Rate</field>
+      <field type="float" name="pitch">Pitch Rate</field>
+      <field type="float" name="yaw">Yaw Rate</field>
+    </message>
   </messages>
 </mavlink>
